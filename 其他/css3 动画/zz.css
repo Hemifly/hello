@@ -1,0 +1,107 @@
+.zzr1{
+    width: 288px;
+    height: 206px;
+    background: url('img/zzr_1.png');
+    background-size: 288px 206px;
+    position: absolute;
+    left: 50px;
+    top: 34px;
+    opacity: 0;
+    z-index: 2;
+    -webkit-animation:zzr1move 1s ease 5.5s forwards;
+    }
+@-webkit-keyframes zzr1move
+{
+0% {opacity: 0;}
+25%{opacity: .5;}
+50%{opacity: 1;}
+75%{opacity: .5;}
+100%{opacity: 0;}
+}
+
+.zzr2{
+    width: 288px;
+    height: 206px;
+    background: url('img/zzr_2.png');
+    background-size: 288px 206px;
+    position: absolute;
+    left: 50px;
+    top: 34px;
+    opacity: 0;
+    z-index: 2;
+    -webkit-animation:zzr2move 1s ease 6.5s forwards;
+    }
+@-webkit-keyframes zzr2move
+{
+0% {opacity: 0;}
+50%{opacity: .5}
+100%{opacity: 1;}
+}
+
+/*.zzr3{
+    width: 288px;
+    height: 206px;
+    background: url('img/zzr_2.png');
+    background-size: 288px 206px;
+    position: absolute;
+    left: 50px;
+    top: 34px;
+    opacity: 0;
+    z-index: 2;
+    -webkit-animation:zzr2move 1s ease 6.5s forwards;
+    }
+@-webkit-keyframes zzr2move
+{
+0% {opacity: 0;}
+50%{opacity: .5}
+100%{opacity: 1;}
+}*/
+.t1{
+    width: 180px;
+    height: 100px;
+    background: url('img/t_jixiang.png');
+    position: absolute;
+    margin-left: -70px;
+    margin-top: -50px;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: scale(.8);
+    z-index: 3;
+    opacity: 0;
+    -webkit-perspective-origin: 0% right;
+    -webkit-animation:t11move 1s ease 5.5s forwards,
+    t12move 1s ease 6.5s forwards;
+    }
+@-webkit-keyframes t11move
+{
+0% {opacity: 0;}
+50%{opacity: .5}
+100%{opacity: 1;}
+}
+@-webkit-keyframes t12move
+{
+0% {-webkit-transform:rotateY(0deg) scale(.6);margin-left: -100px;}
+100%{-webkit-transform:rotateY(20deg) scale(.6);margin-left: -100px;}
+}
+
+.t2{
+    width: 180px;
+    height: 100px;
+    background: url('img/t_ruyi.png');
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: 20px;
+    margin-top: -50px;
+    z-index: 3;
+    opacity: 0;
+    -webkit-perspective-origin: 0% left;
+    -webkit-transform:rotateY(-30deg) rotateX(-30deg) scale(.5);
+    -webkit-animation:t21move 1s ease 6.5s forwards;
+    }
+@-webkit-keyframes t21move
+{
+0% {opacity: 0;}
+50%{opacity: 0.5;}
+100%{opacity: 1;}
+}

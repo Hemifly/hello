@@ -1,0 +1,13 @@
+[user]
+       name=Lmaomao
+       email=17097229901@163.com
+[alias]
+       st=status
+       co=checkout
+       ci=commit
+       pl=pull
+       ps=push
+       dt=difftool
+       b=branch
+[push]
+       default=simple

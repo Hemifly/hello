@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<title>pingfen</title>
+    <style type="text/css">
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    ul{
+        width: 325px;
+        height: 65px;
+        margin: 200px auto;
+    }
+    li{
+        list-style: none;
+        float: left;
+        width: 65px;
+        height: 65px;
+        background: url('3.jpg') no-repeat left top;
+        cursor: pointer;
+    }
+    .item{
+        background: url('3.jpg') no-repeat left -65px;
+    }
+    </style>
+</head>
+<body>
+    <ul>
+        <li title="很不好"></li>
+        <li title="不好"></li>
+        <li title="一般"></li>
+        <li title="好"></li>
+        <li title="很好"></li>
+    </ul>
+<script src="jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    var num=2;
+//li 元素绑定多个事件 按顺序依次触发
+$('li').on('click mouseover mouseout',function (e) {
+    if(e.type=='mouseover'){
+         var num1=$(this).index()+1;
+         light(num1);//这里的变量不能是全局变量
+     }else if (e.type=='click') {
+         num=$(this).index()+1;
+         light(num);//这个一定要是全局已经定义的变量
+     }else if (e.type=='mouseout') {
+        $('li').css('background-position','0 0')
+     };//鼠标移开先全部清除
+     light(num);//再传入已经更新的num值 这样鼠标点击的效果就还在
+ });
+
+var light=function (num) {
+    $('li').each(function (index) {
+         if(index<num){
+        $(this).css('background-position','0 -68px');
+         };
+     })
+  };
+  light(num);//先调用一次 放在最后 light函数要先加载
+</script>
+</body>
+</html>

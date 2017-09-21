@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" style="display: block;border: 1px solid blue;margin: 0 auto;"></canvas>
+    <canvas id="canvasOff" style="display: none;border: 1px solid blue;margin: 0 auto;"></canvas>
+<!--     <input type="range" id="range" style="display: block;margin: 20px auto;width: 300px;" value="3" min="0.5" max="3" step="0.01">
+    <canvas id="canvas1" style="display: none;border: 1px solid red;margin: 0 auto;"></canvas> -->
+    <script type="text/javascript">
+         var canvas=document.getElementById('canvas');
+         var ctx=canvas.getContext('2d');
+         var canvasOff=document.getElementById('canvasOff');
+         var ctxOff=canvasOff.getContext('2d');
+         var isMousedown=false;
+         var image=new Image()
+         var scale;
+        window.onload=function () {
+            canvas.width=960;
+            canvas.height=600;
+            image.src='1.jpg';
+            image.onload=function () {
+                canvasOff.width=image.width;
+                canvasOff.height=image.height;
+                scale=canvasOff.width/canvas.width;
+                ctx.drawImage(image,0,0,canvas.width,canvas.height)
+                ctxOff.drawImage(image,0,0)
+            }
+        }
+
+
+        function windowclient(x,y) {
+             var bbox=canvas.getBoundingClientRect()
+             return {x:x-bbox.left,y:y-bbox.top}
+         }
+         canvas.onmousedown=function (e) {
+             e.preventDefault()
+             isMousedown=true;
+             var point=windowclient(e.clientX,e.clientY);
+             drawMagnifier(true,point)
+         }
+         canvas.onmousemove=function (e) {
+             e.preventDefault()
+             var point=windowclient(e.clientX,e.clientY);
+             if (isMousedown==true) {
+                drawMagnifier(true,point)
+             }
+             
+         }
+         canvas.onmouseup=function (e) {
+             e.preventDefault()
+             isMousedown=false;
+             drawMagnifier(false)
+         }
+         canvas.onmouseout=function (e) {
+             e.preventDefault()
+             isMousedown=false;
+             drawMagnifier(false)
+         }
+
+         function drawMagnifier(isShow,point){
+            ctx.clearRect(0,0,canvas.width,canvas.height)
+            ctx.drawImage(image,0,0,canvas.width,canvas.height)
+            if (isShow==true) {
+                magnifier(point)
+            }
+         }
+
+         function magnifier(point) {
+             var imageX=point.x*scale;
+             var imageY=point.y*scale;
+             var mr=100;
+             var sx=imageX-mr;
+             var sy=imageY-mr;
+             var dx=point.x-mr;
+             var dy=point.y-mr;
+             ctx.save()
+             ctx.beginPath()
+             ctx.lineWidth=10;
+             ctx.strokeStyle='blue';
+             ctx.arc(point.x,point.y,mr,0,Math.PI*2)
+             ctx.stroke()
+             ctx.clip()
+             ctx.drawImage(canvasOff,sx,sy,2*mr,2*mr,dx,dy,2*mr,2*mr)
+             ctx.restore()
+         }
+         //绘制滑杆和水印
+         // var canvas1=document.getElementById('canvas1');
+         // var ctx1=canvas1.getContext('2d');
+         // var image=new Image();
+         // image.src='img.jpg';
+         // canvas.width=1280;
+         // canvas.height=550;
+         // canvas1.width=200;
+         // canvas1.height=50;
+         // ctx1.font="20px Arial";
+         // ctx1.lineWidth=1;
+         // ctx1.fillStyle='rgba(22,22,11,0.5)';
+         // ctx1.fillText("Hello World!",10,30);
+         // var range=document.getElementById('range');
+         // scale=range.value;
+         // image.onload=function () {
+         //     draw(scale);
+         // }
+         // range.onchange=function () {
+         //     scale=range.value;
+         //     draw(scale);
+         // }
+         // function draw(scale) {
+         //     ctx.clearRect(0,0,canvas.width,canvas.height);
+         //     x=(1-scale)*canvas.width/2;
+         //     y=(1-scale)*canvas.height/2;
+         //     ctx.drawImage(image,x,y,canvas.width*scale,canvas.height*scale);
+         //     ctx.drawImage(canvas1,canvas.width-canvas1.width,canvas.height-canvas1.height)
+         // }
+
+    </script>
+</body>
+</html>
