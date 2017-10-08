@@ -99,6 +99,7 @@ var addressModal = {
                 status :false
             };
         receiverInfo.receiverName      = $.trim(this.$modalWrap.find('#receiver-name').val());
+        console.log(receiverInfo.receiverName);
         receiverInfo.receiverProvince  = this.$modalWrap.find('#receiver-province').val();
         receiverInfo.receiverCity      = this.$modalWrap.find('#receiver-city').val();
         receiverInfo.receiverPhone     = $.trim(this.$modalWrap.find('#receiver-phone').val());

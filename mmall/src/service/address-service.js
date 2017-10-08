@@ -1,7 +1,6 @@
 'use strict';
 var _mm=require('util/mm.js');
 var _address={
-    //获取购物车数量
     getAddressList:function (resole,reject) {
         _mm.request({
             url    :_mm.getServerUrl('/shipping/list.do'),

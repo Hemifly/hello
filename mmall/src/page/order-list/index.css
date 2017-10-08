@@ -18,7 +18,7 @@
     color:#999;
 }
 .order-list-table .order-info .order-text{
-    margin-right:25px;
+    margin-right:10px;
     width: 20%;
 }
 .order-list-table .order-info .order-num,
@@ -29,7 +29,7 @@
 }
 .order-list-table .order-info .order-detail{
     float: right;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 .order-list-table .cell-img{
     width: 10%;

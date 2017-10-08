@@ -55,4 +55,4 @@
         </table>
         <p class="total"><span>订单总价：</span><span class="total-price">￥{{payment}}</span></p>
     </div>
-</div
+</div>
