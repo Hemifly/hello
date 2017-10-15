@@ -194,7 +194,7 @@ document.addEventListener("touchend",function (event) {
     if (Math.abs(deltax)>Math.abs(deltay)) {
         if (deltax>0) {
             //move right
-            if (moveLeft()) {
+            if (moveRight()) {
                 setTimeout('generateOneNumber()',210);//生成格子
                 setTimeout('isgameover()',300);//判断游戏是否结束
 
@@ -202,7 +202,7 @@ document.addEventListener("touchend",function (event) {
         }
         else{
             //move left
-            if (moveRight()) {
+            if (moveLeft()) {
                 setTimeout('generateOneNumber()',210);//生成格子
                 setTimeout('isgameover()',300);//判断游戏是否结束
 
